@@ -102,20 +102,22 @@ int main()
 	cout << "배열을 정렬합니다[오름차순 = 1 / 내림차순 = 2]";
 	cin >> sort_type;
 
-	if (sort_type == 1)
+	if (sort_type == 1) // 오름차순
 	{
 		SortAscending(input_array, kArrayMaxSize);
 	}
-	else if (sort_type == 2)
+	else if (sort_type == 2) // 내림차순
 	{
 		SortDescending(input_array, kArrayMaxSize);
 	}
-	else
+	else // 1, 2가 아닌 다른 숫자를 입력했을 경우
 	{
+		// 오류 메시지 출력
 		cout << "입력에 오류가 있습니다. 정렬은 실행되지 않았습니다." << endl;
 		return -1;
 	}
 
+	// 배열 전체 출력
 	cout << "[";
 	for (int i = 0; i < kArrayMaxSize; i++)
 	{
