@@ -25,56 +25,52 @@ double AverageArray(const double input_array[], int array_size)
 // 오름차순 정렬 함수(선택 정렬)
 void SortAscending(double input_array[], int array_size)
 {
-	double min_value;
-	int min_value_index = 0;
+	int min_index = 0;
 	double swap_container;
 
 	for (int j = 0; j < array_size; j++)
 	{
-		min_value = input_array[j];
+		min_index = j;
 
 		for (int i = j; i < array_size; i++)
 		{
 			// 최솟값 찾기
-			if (min_value >= input_array[i])
+			if (input_array[min_index] >= input_array[i])
 			{
-				min_value = input_array[i];
-				min_value_index = i;
+				min_index = i;
 			}
 		}
 
 		// 자리 바꾸기(최솟값 제일 앞으로)
 		swap_container = input_array[j];
-		input_array[j] = min_value;
-		input_array[min_value_index] = swap_container;
+		input_array[j] = input_array[min_index];
+		input_array[min_index] = swap_container;
 	}
 }
 
 // 내림차순 정렬 함수(선택 정렬)
 void SortDescending(double input_array[], int array_size)
 {
-	double max_value;
-	int max_value_index = 0;
+	int max_index = 0;
 	double swap_container;
 
-	for (int j = 0; j < array_size; j++)
+	for (int j = 0; j < array_size-1; j++)
 	{
-		max_value = input_array[j];
+		max_index = j;
 
 		for (int i = j; i < array_size; i++)
 		{
 			// 최댓값 찾기
-			if (max_value <= input_array[i])
+			if (input_array[max_index] <= input_array[i])
 			{
-				max_value = input_array[i];
-				max_value_index = i;
+				max_index = i;
 			}
 		}
 
 		// 자리 바꾸기(최댓값 제일 앞으로)
 		swap_container = input_array[j];
-		input_array[j] = max_value;
-		input_array[max_value_index] = swap_container;
+		input_array[j] = input_array[max_index];
+		input_array[max_index] = swap_container;
 	}
 }
 
